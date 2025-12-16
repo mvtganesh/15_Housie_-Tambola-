@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housie</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://rukminim2.flixcart.com/image/416/416/ksuowi80/board-game/g/f/z/housie-game-set-for-adults-and-kids-tambola-board-game-set-with-original-imag6c6jdqmcjwhh.jpeg?q=70&crop=false">
+
+    <style>
+        body{
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            height: 98vh;
+            border: 2px inset gold;
+            text-align: center;
+        }
+        .numbers span {
+            padding: 6px 10px;
+            border: 1px solid gold;
+            border-radius: 6px;
+            background-color: white;
+            opacity: 0.7;
+        }
+        .numbers span:hover{
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0px 0px 4px 2px gray;  
+            border-color: silver;
+            transform: scale(1.5);
+        }
+        .numbers span:active{
+            background-color:red ;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-color: gold;
+            box-shadow: 0px 0px 4px 2px gray;  
+        }
+        @media (max-width: 600px) {
+            body{
+                height: auto;
+                padding:5% 0px;
+                background-image: url('https://tse2.mm.bing.net/th/id/OIP.Nn2fuf95pb-5jOEV0rXVyQHaKX?cb=ucfimg2&pid=ImgDet&ucfimg=1&w=197&h=276&c=7&dpr=1.3&o=7&rm=3');
+                background-repeat: no-repeat;
+                background-size: cover;  
+
+            }
+        }
+    </style>
+</head>
+<body>
+<script>
+    const history = localStorage.getItem('localStoragerandomHistory');
+
+    if (history) {
+        const numbers = history.split(','); // assuming comma-separated
+        document.write(`
+            <h1 style="color:green;font-variant:small-caps;">
+                Randomly Picked Numbers:
+            </h1>
+            <div class="numbers" style="
+                color:red;
+                display:flex;
+                flex-wrap:wrap;
+                gap:15px;
+                max-width:90vw;
+                justify-content:center;
+            ">
+                ${numbers.map(n => `<span>${n.trim()}</span>`).join('')}
+            </div>
+        `);
+    } else {
+        document.write("<p>No history found.</p>");
+    }
+</script>
+
+</body>
+</html>
